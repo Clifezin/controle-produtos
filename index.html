@@ -19,16 +19,16 @@
     <script>
         let linha = ''
         let produtos = [
-            {codigo: 1, descriçao: 'Feijão Carioca 1kg', preco: 4.99 },
-            {codigo: 2, descriçao: 'Saedinha 88 150g', preco: 6.99}
+            {codigo: 1, descricao: 'Feijão Carioca 1kg', preco: 4.99 },
+            {codigo: 2, descricao: 'Saedinha 88 150g', preco: 6.99}
         ]
 
         produtos.push({codigo: 3, descriçao: 'Pacote de Macarrão Estrela', preco: 2.59})
 
-        produtos,forEach(produto => linha += `
+        produtos.forEach(produto => linha += `
             <tr>
                 <td>${produto.codigo}</td>
-                <td>${produto.descriçao}</td>
+                <td>${produto.descricao}</td>
                 <td>R$ ${produto.preco.toFixed(2)}</td>
             </tr>
         `)   
