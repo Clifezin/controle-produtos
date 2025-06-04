@@ -20,6 +20,7 @@
             <th>Código</th>
             <th>Descrição do Produto</th>
             <th>Valor Produto</th>
+            <th>Opções</th>
         </tr>
         <tbody id="produtos"></tbody>
     </table>
@@ -41,11 +42,15 @@
 
             linha = ''
 
-            produtos.forEach(p => linha += `
+            produtos.forEach((p, index) => linha += `
                 <tr>
                     <td>${p.codigo}</td>
                     <td>${p.descricao}</td>
                     <td>R$ ${p.preco.toFixed(2)}</td>
+                    <td>
+                        <button onclick="editarProduto(${index})">Editar</button>
+                        <button onclick="removerProduto(${index})">Remover</button>
+                    </td>
                 </tr>
             `)
 
