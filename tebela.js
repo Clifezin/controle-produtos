@@ -39,9 +39,25 @@ function addProduto() {
 
 function editarProduto(index) {
     const produto = produtos[index]
-    alert(`Produto selecionado: ${produto.descricao}`)
+   descricaoProduto.value = produto.descricao
+   precoProduto.value = produto.preco
+   indexEditado = index
+   btnSalvar.innerText = 'Editar Produto'
+   btnSalvar.onclick = atualizarProduto
 }
 
+function atualizarProduto() {
+    produtos[indexEditado].descricao = descricaoProduto.value
+    peodutos[indexEditado].preco = precoProduto.value
+
+    renderizarTabela()
+
+    descricaoProduto.value = ''
+    precoProduto.value = ''
+    descricaoProduto.focus()
+    btnSalvar.innerText = 'Adicionar Produto'
+    btnSalvar.onclick = addProduto
+}
 function removerProduto(index) {
     const produto = produtos[index]
     alert(`Produto selecionado: ${produto.descricao}`)
