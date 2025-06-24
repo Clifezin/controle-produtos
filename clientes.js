@@ -14,6 +14,19 @@ const tabelaCorpo = document.getElementById("clientesTabela")
 
 nascimentoInput.max = new Date().toISOString().split("T")[0]
 
+window.onload = () => {
+  const dadosSalvos = localStorage.getItem('clientesStorage')
+  if (dadosSalvos) {
+    clientes = JSON.parse(dadosSalvos)
+    proximoId = clientes.length ? Math.max(...clientes.map(c => c.id)) + 1 : 1
+    renderizarClientes()
+  }
+}
+
+function salvarLocalStorage() {
+  localStorage.setItem('clientesStorage', JSON.stringify(clientes))
+}
+
 function limparFormulario() {
   nomeInput.value = ""
   emailInput.value = ""
@@ -84,6 +97,7 @@ function adicionarOuEditarCliente() {
     }
   }
 
+  salvarLocalStorage()
   limparFormulario()
   renderizarClientes()
 }
@@ -107,6 +121,7 @@ function removerCliente(id) {
     if (editandoId === id) {
       limparFormulario()
     }
+    salvarLocalStorage()
     renderizarClientes()
   }
 }
@@ -114,4 +129,3 @@ function removerCliente(id) {
 btnSalvar.addEventListener("click", adicionarOuEditarCliente)
 btnCancelar.addEventListener("click", limparFormulario)
 
-renderizarClientes()
