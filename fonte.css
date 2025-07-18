@@ -1,0 +1,15 @@
+
+body {
+  background-color: #130c0c;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+  color: rgb(216, 24, 24);
+}
